@@ -1,0 +1,5 @@
+IP: 45.33.32.156 | Alvo: GET /wp-admin.php | Status: 404
+IP: 45.33.32.156 | Alvo: GET /.env | Status: 403
+IP: 45.33.32.156 | Alvo: GET /config.php | Status: 403
+IP: 185.220.101.5 | Alvo: GET /phpmyadmin | Status: 404
+IP: 185.220.101.5 | Alvo: GET /backup.sql | Status: 403

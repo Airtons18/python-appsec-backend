@@ -18,9 +18,15 @@ python-appsec-backend/
 └── Semana1_Python_Seguranca/
     ├── Dia1_Forca_Bruta/
     │   └── DIA1.py
-    └── Dia2_Firewall_e_Lentidao/
-        ├── DIA2_port_scan.py
-        └── DIA2_lentidao_logs_sujos.py
+    ├── Dia2_Firewall_e_Lentidao/
+    │   ├── DIA2_port_scan.py
+    │   └── DIA2_lentidao_logs_sujos.py
+    └── Dia3_Auditoria_Logs_JSON/
+        ├── acessos_servidor.log
+        ├── DIA3_arquivos_txt.py
+        ├── DIA3_exportar_json.py
+        ├── relatorio_ataques.txt
+        └── alertas_seguranca.json
 ```
 
 ---
@@ -36,6 +42,10 @@ python-appsec-backend/
 #### 2. Scanner de Portas de Firewall & Tolerância a Logs Corrompidos (`Dia2_Firewall_e_Lentidao`)
 * **Contexto (Reconhecimento & DoS):** Detecção de *Port Scanning* (`21`, `22`, `3306`, `8080`) em logs brutos de firewall e identificação de rotas com lentidão crítica (`>= 2000 ms`) em arquivos com falhas de rede/linhas truncadas.
 * **Implementação (`DIA2_port_scan.py` & `DIA2_lentidao_logs_sujos.py`):** Parsing de strings com `.split(':')`, acumuladores nativos em dicionário e programação defensiva (`len()`, `.isdigit()`, `try/except`) para processar logs sujos sem interromper a execução.
+
+#### 3. Auditoria de Servidor Web e Exportação para SIEM (`Dia3_Auditoria_Logs_JSON`)
+* **Contexto (Fuzzing & Integração SIEM):** Monitoramento de requisições HTTP `403` e `404` geradas por varreduras em busca de arquivos sensíveis (`/.env`, `/wp-admin.php`, `/backup.sql`, `/config.php`).
+* **Implementação (`DIA3_arquivos_txt.py` & `DIA3_exportar_json.py`):** Leitura de `acessos_servidor.log` em loop único, geração de relatório legível (`relatorio_ataques.txt`) e serialização estruturada em `alertas_seguranca.json` contendo métricas globais, contagem por IP e lista de eventos.
 
 
 
