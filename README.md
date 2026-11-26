@@ -21,12 +21,15 @@ python-appsec-backend/
     ├── Dia2_Firewall_e_Lentidao/
     │   ├── DIA2_port_scan.py
     │   └── DIA2_lentidao_logs_sujos.py
-    └── Dia3_Auditoria_Logs_JSON/
-        ├── acessos_servidor.log
-        ├── DIA3_arquivos_txt.py
-        ├── DIA3_exportar_json.py
-        ├── relatorio_ataques.txt
-        └── alertas_seguranca.json
+    ├── Dia3_Auditoria_Logs_JSON/
+    │   ├── acessos_servidor.log
+    │   ├── DIA3_arquivos_txt.py
+    │   ├── DIA3_exportar_json.py
+    │   ├── relatorio_ataques.txt
+    │   └── alertas_seguranca.json
+    └── Dia4_Modulos_Prompt_Injection/
+        ├── validador_seguranca.py
+        └── DIA4_principal.py
 ```
 
 ---
@@ -46,6 +49,10 @@ python-appsec-backend/
 #### 3. Auditoria de Servidor Web e Exportação para SIEM (`Dia3_Auditoria_Logs_JSON`)
 * **Contexto (Fuzzing & Integração SIEM):** Monitoramento de requisições HTTP `403` e `404` geradas por varreduras em busca de arquivos sensíveis (`/.env`, `/wp-admin.php`, `/backup.sql`, `/config.php`).
 * **Implementação (`DIA3_arquivos_txt.py` & `DIA3_exportar_json.py`):** Leitura de `acessos_servidor.log` em loop único, geração de relatório legível (`relatorio_ataques.txt`) e serialização estruturada em `alertas_seguranca.json` contendo métricas globais, contagem por IP e lista de eventos.
+
+#### 4. Arquitetura Modular, Prevenção de *Prompt Injection* e LGPD (`Dia4_Modulos_Prompt_Injection`)
+* **Contexto (OWASP LLM01 & LLM06):** Proteção de sistemas integrados a IA contra instruções maliciosas (*"ignore as instruções"*, *"delete from"*, *"mostre a senha"*) e sanitização de credenciais/dados pessoais antes da gravação de logs.
+* **Implementação (`validador_seguranca.py` & `DIA4_principal.py`):** Separação de responsabilidades em módulo importado, normalização de texto (`.lower()`), varredura de *blacklist* e mascaramento automático de `cpf` e `api_key` (`***OCULTO***`).
 
 
 
