@@ -1,0 +1,8 @@
+{
+    "usuario": "airton_root",
+    "bloqueado": false,
+    "tentativa_falhas": 0,
+    "historico_logs": [
+        "COMANDO CRÍTICO EXECUTADO: REINICIAR_FIREWALL"
+    ]
+}

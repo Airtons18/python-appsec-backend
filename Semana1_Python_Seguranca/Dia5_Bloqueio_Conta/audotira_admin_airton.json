@@ -1,0 +1,14 @@
+{
+    "usuario": "admin_airton",
+    "bloqueado": false,
+    "tentativa_falhas": 0,
+    "historico_logs": [
+        "Falha de Senha",
+        "Falha de Senha",
+        "Falha de Senha",
+        "Conta Bloqueada!",
+        "Tentativa em conta bloqueada",
+        "Conta Desbloqueada e senha alterada",
+        "Login Aprovado"
+    ]
+}

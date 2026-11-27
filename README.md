@@ -27,9 +27,14 @@ python-appsec-backend/
     │   ├── DIA3_exportar_json.py
     │   ├── relatorio_ataques.txt
     │   └── alertas_seguranca.json
-    └── Dia4_Modulos_Prompt_Injection/
-        ├── validador_seguranca.py
-        └── DIA4_principal.py
+    ├── Dia4_Modulos_Prompt_Injection/
+    │   ├── validador_seguranca.py
+    │   └── DIA4_principal.py
+    └── Dia5_Bloqueio_Conta/
+        ├── Dia5_poo.py
+        ├── audotira_admin_airton.json
+        ├── audotira_airton_jr.json
+        └── audotira_airton_root.json
 ```
 
 ---
@@ -53,6 +58,10 @@ python-appsec-backend/
 #### 4. Arquitetura Modular, Prevenção de *Prompt Injection* e LGPD (`Dia4_Modulos_Prompt_Injection`)
 * **Contexto (OWASP LLM01 & LLM06):** Proteção de sistemas integrados a IA contra instruções maliciosas (*"ignore as instruções"*, *"delete from"*, *"mostre a senha"*) e sanitização de credenciais/dados pessoais antes da gravação de logs.
 * **Implementação (`validador_seguranca.py` & `DIA4_principal.py`):** Separação de responsabilidades em módulo importado, normalização de texto (`.lower()`), varredura de *blacklist* e mascaramento automático de `cpf` e `api_key` (`***OCULTO***`).
+
+#### 5. POO: Cofre de Autenticação, MFA, RBAC e *Privilege Escalation* (`Dia5_Bloqueio_Conta`)
+* **Contexto (OWASP A01 & A07 / IAM):** Gestão de estado de contas de usuário e administradores com bloqueio automático após 3 falhas (*Account Lockout*), recuperação via Token MFA e prevenção de Escalada de Privilégio.
+* **Implementação (`Dia5_poo.py`):** Superclasse `ContaUsuario` e subclasse `ContaAdmin(ContaUsuario)` com herança via `super().__init__()`, trilha de auditoria interna (`self.historico_logs`), validação de política de senha forte (`len >= 8` e inédita), restrição de comandos críticos a administradores `nivel_acesso >= 5`, classificação dinâmica de risco e exportação individual em JSON.
 
 
 

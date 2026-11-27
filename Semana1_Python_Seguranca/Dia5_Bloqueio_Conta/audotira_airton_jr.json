@@ -1,0 +1,8 @@
+{
+    "usuario": "airton_jr",
+    "bloqueado": false,
+    "tentativa_falhas": 0,
+    "historico_logs": [
+        "Alerta: Tentativa de Escalada de Privilégio"
+    ]
+}
